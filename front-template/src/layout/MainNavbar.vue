@@ -121,33 +121,33 @@
               </li>
 
               <md-list-item
-                href="https://twitter.com/CreativeTim"
+                href="https://www.cjolivenetworks.co.kr"
                 target="_blank"
               >
-                <i class="fab fa-twitter"></i>
-                <p class="hidden-lg">Twitter</p>
+                <md-icon>favorite</md-icon>
+                <p class="hidden-lg">ONLYONE</p>
                 <md-tooltip md-direction="bottom"
-                  >Follow us on Twitter</md-tooltip
+                  >올리브네트웍스 최고</md-tooltip
                 >
               </md-list-item>
               <md-list-item
-                href="https://www.facebook.com/CreativeTim"
+                href="https://www.cjolivenetworks.co.kr"
                 target="_blank"
               >
-                <i class="fab fa-facebook-square"></i>
-                <p class="hidden-lg">Facebook</p>
+                <md-icon>house</md-icon>
+                <p class="hidden-lg">HOME</p>
                 <md-tooltip md-direction="bottom"
-                  >Like us on Facebook</md-tooltip
+                  >올리브네트웍스 홈페이지</md-tooltip
                 >
               </md-list-item>
               <md-list-item
-                href="https://www.instagram.com/CreativeTimOfficial"
+                href="https://www.youtube.com/channel/UCz-j1tzeMCqvOX0YNkOXIAw"
                 target="_blank"
               >
-                <i class="fab fa-instagram"></i>
-                <p class="hidden-lg">Instagram</p>
+                <i class="fab fa-youtube"></i>
+                <p class="hidden-lg">YOUTUBE</p>
                 <md-tooltip md-direction="bottom"
-                  >Follow us on Instagram</md-tooltip
+                  >올리브네트웍스 유튜브</md-tooltip
                 >
               </md-list-item>
             </md-list>

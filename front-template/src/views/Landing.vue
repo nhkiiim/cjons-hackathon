@@ -6,12 +6,10 @@
           <div
             class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">ADAM</h1>
+            <h1 class="title">Your Story Starts With Us.</h1>
             <h4>
-              Every landing page needs a small description after the big bold
-              title, that's why we added this text here. Add here all the
-              information that can make you or your product create the first
-              impression.
+             Adam means to capture beauty. Adam can test a variety of cosmetics online. 
+             Welcome to the amazing world of testing cosmetics as a virtual human.
             </h4>
             <br />
             <md-button
