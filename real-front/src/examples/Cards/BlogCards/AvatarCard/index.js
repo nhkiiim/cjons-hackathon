@@ -17,14 +17,16 @@ Coded by www.creative-tim.com
 import PropTypes from "prop-types";
 
 // @mui material components
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
-import MKTypography from "components/MKTypography";
-import MKButton from "components/MKButton";
+import MKAvatar from "components/MKAvatar";
 
-function CenteredBlogCard({ image, title, description, onClick }) {
+function ImageCard({ image, title, eye, base, lip }) {
   return (
     <Card>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
@@ -54,35 +56,27 @@ function CenteredBlogCard({ image, title, description, onClick }) {
         />
       </MKBox>
       <MKBox p={3} mt={-1} textAlign="center">
-        <MKTypography display="inline" variant="h5" textTransform="capitalize" fontWeight="regular">
-          {title}
-        </MKTypography>
-        <MKBox mt={1} mb={3}>
-          <MKTypography variant="body2" component="p" color="text">
-            {description}
-          </MKTypography>
-        </MKBox>
-        <MKButton
-          target="_blank"
-          rel="noreferrer"
-          variant="gradient"
-          size="small"
-          color="info"
-          onClick={onClick}
-        >
-          선택
-        </MKButton>
+        <Container>
+          <Grid container justifyContent="center">
+            <Stack direction="row" alignItems="normal" spacing={3}>
+              <MKAvatar src={eye} alt="xxl" size="xxl" />
+              <MKAvatar src={base} alt="xxl" size="xxl" />
+              <MKAvatar src={lip} alt="xxl" size="xxl" />
+            </Stack>
+          </Grid>
+        </Container>
       </MKBox>
     </Card>
   );
 }
 
-// Typechecking props for the CenteredBlogCard
-CenteredBlogCard.propTypes = {
+// Typechecking props for the ImageCard
+ImageCard.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  eye: PropTypes.string.isRequired,
+  base: PropTypes.string.isRequired,
+  lip: PropTypes.string.isRequired,
 };
 
-export default CenteredBlogCard;
+export default ImageCard;
