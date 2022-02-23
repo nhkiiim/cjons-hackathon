@@ -16,34 +16,25 @@ Coded by www.creative-tim.com
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
 // Material Kit 2 React components
-// import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
 import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
-// import BackgroundBlogCard from "examples/Cards/BlogCards/BackgroundBlogCard";
 import ImageCard from "examples/Cards/BlogCards/ImageCard";
 
-// Images
-// import post1 from "assets/images/examples/testimonial-6-2.jpg";
-// import post2 from "assets/images/examples/testimonial-6-3.jpg";
-// import post3 from "assets/images/examples/blog-9-4.jpg";
-// import post4 from "assets/images/examples/blog2.jpg";
-
-// https://mui.com/components/buttons/
-
 // Face Type Images
-import M20 from "assets/images/faces/20대 남성.png";
-import M30 from "assets/images/faces/30대 남성.png";
-import M40 from "assets/images/faces/40대 남성.png";
-import M50 from "assets/images/faces/50대 남성.png";
-import W20 from "assets/images/faces/20대 여성.png";
-import W30 from "assets/images/faces/30대 여성.png";
-import W40 from "assets/images/faces/40대 여성.png";
-import W50 from "assets/images/faces/50대 여성.png";
+// import M20 from "assets/images/faces/20대 남성.png";
+// import M30 from "assets/images/faces/30대 남성.png";
+// import M40 from "assets/images/faces/40대 남성.png";
+// import M50 from "assets/images/faces/50대 남성.png";
+import W20 from "assets/images/faces/20대 여성.png";
+// import W30 from "assets/images/faces/30대 여성.png";
+// import W40 from "assets/images/faces/40대 여성.png";
+// import W50 from "assets/images/faces/50대 여성.png";
 
 // Eye Type Images
 import E1 from "assets/images/eyes/밀크터치 올데이 롱앤컬 마스카라.png";
@@ -78,91 +69,122 @@ const lips = [
   [L3, "MAC 립스틱"],
 ];
 
-function Places() {
-  (() => [M20, M30, M40, M50, W20, W30, W40, W50])();
+function Select({ setStep }) {
+  const onClickNext = (e) => {
+    e.preventDefault();
+    setStep(3);
+  };
 
-  (() => [E1, E2, E3, B1, B2, B3, L1, L2, L3])();
-
-  (() => [eyes, bases, lips])();
+  const onClickCard = (e) => {
+    e.preventDefault();
+    e.target.closest(".unSelected").classList.add("selected");
+  };
 
   return (
     <MKBox component="section" py={3}>
       <Container xs={12}>
-        <Grid container item xs={4}>
+        <Grid container item xs={12}>
           <MKTypography variant="h3" mb={6}>
             Select
           </MKTypography>
         </Grid>
+
         <Grid container spacing={2} xs={12} direction="row">
-          {/* 선택한 얼굴 전시 */}
-          <Grid item xs={4} sm={6} lg={3}>
+          <Grid item xs={4} sm={6} lg={5}>
             <ImageCard image={W20} title="20대 여성" />
           </Grid>
 
-          {/* 화장품 선택 메뉴 */}
-          <Grid container xs={5} spacing={3}>
-            {eyes.map((eye) => (
-              <Grid item xs={6} sm={6} lg={3}>
-                <TransparentBlogCard
-                  image={eye[0]}
-                  title={eye[1]}
-                  // description="If you’ve ever wanted to train a machine learning model and integrate it with IFTTT, you now can with ..."
-                  action={{
-                    type: "internal",
-                    route: "/pages/blogs/author",
-                    color: "info",
-                    label: "read more",
-                  }}
-                />
-              </Grid>
-            ))}
-            {bases.map((base) => (
-              <Grid item xs={6} sm={6} lg={3}>
-                <TransparentBlogCard
-                  image={base[0]}
-                  title={base[1]}
-                  // description="If you’ve ever wanted to train a machine learning model and integrate it with IFTTT, you now can with ..."
-                  action={{
-                    type: "internal",
-                    route: "/pages/blogs/author",
-                    color: "info",
-                    label: "read more",
-                  }}
-                />
-              </Grid>
-            ))}
-            {lips.map((lip) => (
-              <Grid item xs={6} sm={6} lg={3}>
-                <TransparentBlogCard
-                  image={lip[0]}
-                  title={lip[1]}
-                  // description="If you’ve ever wanted to train a machine learning model and integrate it with IFTTT, you now can with ..."
-                  action={{
-                    type: "internal",
-                    route: "/pages/blogs/author",
-                    color: "info",
-                    label: "read more",
-                  }}
-                />
-              </Grid>
-            ))}
-          </Grid>
+          <Grid xs={1} />
 
-          {/* 선택한 화장품 목록들 */}
-          <Grid container xs={3} spacing={3}>
-            <Grid item xs={6} sm={6} lg={3}>
-              <TransparentBlogCard
-                image={lips[0][0]}
-                title={lips[0][1]}
-                // description="If you’ve ever wanted to train a machine learning model and integrate it with IFTTT, you now can with ..."
-                action={{
-                  type: "internal",
-                  route: "/pages/blogs/author",
-                  color: "info",
-                  label: "read more",
-                }}
-              />
+          <Grid
+            container
+            xs={6}
+            spacing={1}
+            sx={{
+              "& .selected": {
+                borderRadius: "10px",
+                boxShadow: "0px 2.5px 5px #c4c4c4",
+              },
+            }}
+          >
+            <Grid container item xs={12} spacing={3}>
+              <MKTypography variant="h5">Eyes</MKTypography>
+              <Grid container item xs={12} spacing={3}>
+                {eyes.map((eye) => (
+                  <>
+                    <Grid
+                      item
+                      xs={6}
+                      sm={6}
+                      lg={4}
+                      className="unSelected"
+                      onClick={onClickCard}
+                      sx={{
+                        padding: "10px 20px 0px 0px",
+                      }}
+                    >
+                      <TransparentBlogCard image={eye[0]} title={eye[1]} />
+                    </Grid>
+                  </>
+                ))}
+              </Grid>
             </Grid>
+
+            <Grid container item xs={12} spacing={3}>
+              <MKTypography variant="h5" mt={4}>
+                Bases
+              </MKTypography>
+              <Grid container item xs={12} spacing={3}>
+                {bases.map((base) => (
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    lg={4}
+                    className="unSelected"
+                    onClick={onClickCard}
+                    sx={{
+                      padding: "10px 25px 0px 0px",
+                    }}
+                  >
+                    <TransparentBlogCard image={base[0]} title={base[1]} />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+
+            <Grid container item xs={12} spacing={3}>
+              <MKTypography variant="h5" mt={4}>
+                Lips
+              </MKTypography>
+              <Grid container item xs={12} spacing={3}>
+                {lips.map((lip) => (
+                  <Grid
+                    item
+                    xs={6}
+                    sm={6}
+                    lg={4}
+                    className="unSelected"
+                    onClick={onClickCard}
+                    sx={{
+                      padding: "10px 25px 0px 0px",
+                    }}
+                  >
+                    <TransparentBlogCard image={lip[0]} title={lip[1]} />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+
+            <Button
+              size="large"
+              variant="contained"
+              color="info"
+              sx={{ margin: "0 0 0 420px" }}
+              onClick={onClickNext}
+            >
+              선택 완료
+            </Button>
           </Grid>
         </Grid>
       </Container>
@@ -170,4 +192,12 @@ function Places() {
   );
 }
 
-export default Places;
+Select.defaultProps = {
+  setStep: () => {},
+};
+
+Select.propTypes = {
+  setStep: () => {},
+};
+
+export default Select;
