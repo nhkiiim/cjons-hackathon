@@ -15,7 +15,7 @@ import M20 from "assets/images/faces/20대 남성.png";
 import M30 from "assets/images/faces/30대 남성.png";
 import M40 from "assets/images/faces/40대 남성.png";
 import M50 from "assets/images/faces/50대 남성.png";
-import W20 from "assets/images/faces/20대 여성.png";
+import W20 from "assets/images/faces/20대 여성.png";
 import W30 from "assets/images/faces/30대 여성.png";
 import W40 from "assets/images/faces/40대 여성.png";
 import W50 from "assets/images/faces/50대 여성.png";
@@ -34,7 +34,12 @@ const wFaces = [
   [W50, "50대 여성"],
 ];
 
-function Choose() {
+function Choose({ setStep }) {
+  const onClick = (e) => {
+    e.preventDefault();
+    setStep(2);
+  };
+
   return (
     <MKBox component="section" py={3}>
       <Container>
@@ -46,33 +51,13 @@ function Choose() {
         <Grid container spacing={4} columns={24} alignItems="center">
           {mFaces.map((face) => (
             <Grid item xs={12} lg={6} sx={{ ml: "auto", mt: { xs: 3, lg: 0 }, mb: 2 }}>
-              <CenteredBlogCard
-                image={face[0]}
-                title={face[1]}
-                // description="Website visitors today demand a frictionless user expericence — especially when using search. Because of the hight standards."
-                action={{
-                  type: "internal",
-                  route: "pages/company/about-us",
-                  color: "info",
-                  label: "선택",
-                }}
-              />
+              <CenteredBlogCard image={face[0]} title={face[1]} onClick={onClick} />
             </Grid>
           ))}
 
           {wFaces.map((face) => (
             <Grid item xs={12} lg={6} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
-              <CenteredBlogCard
-                image={face[0]}
-                title={face[1]}
-                // description="Website visitors today demand a frictionless user expericence — especially when using search. Because of the hight standards."
-                action={{
-                  type: "internal",
-                  route: "pages/company/about-us",
-                  color: "info",
-                  label: "선택",
-                }}
-              />
+              <CenteredBlogCard image={face[0]} title={face[1]} onClick={onClick} />
             </Grid>
           ))}
         </Grid>
@@ -80,5 +65,13 @@ function Choose() {
     </MKBox>
   );
 }
+
+Choose.defaultProps = {
+  setStep: () => {},
+};
+
+Choose.propTypes = {
+  setStep: () => {},
+};
 
 export default Choose;
