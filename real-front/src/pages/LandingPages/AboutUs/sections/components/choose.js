@@ -43,12 +43,23 @@ function Choose({ setStep }) {
   return (
     <MKBox component="section" py={3}>
       <Container>
-        <Grid container item xs={12} lg={6}>
-          <MKTypography variant="h3" mb={6}>
-            Select
+        <Grid
+          container
+          item
+          xs={12}
+          lg={6}
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+          sx={{ mx: "auto", textAlign: "center" }}
+        >
+          <MKTypography variant="h3" verticalAlign="middle" mb={6} sx={{}}>
+            여기에 내용을 적어주세요. 스타일을 변경하고 싶으시다면 sx 안에 CSS 를 작성해주세요.
+            variant=h1, h2, ..., h6
           </MKTypography>
         </Grid>
-        <Grid container spacing={4} columns={24} alignItems="center">
+
+        <Grid container mt={0.1} spacing={4} columns={24} alignItems="center">
           {mFaces.map((face) => (
             <Grid item xs={12} lg={6} sx={{ ml: "auto", mt: { xs: 3, lg: 0 }, mb: 2 }}>
               <CenteredBlogCard image={face[0]} title={face[1]} onClick={onClick} />

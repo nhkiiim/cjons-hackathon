@@ -83,13 +83,22 @@ function Select({ setStep }) {
   return (
     <MKBox component="section" py={3}>
       <Container xs={12}>
-        <Grid container item xs={12}>
-          <MKTypography variant="h3" mb={6}>
-            Select
+        <Grid
+          container
+          item
+          xs={12}
+          lg={6}
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+          sx={{ mx: "auto", textAlign: "center", marginBottom: "10px" }}
+        >
+          <MKTypography variant="h3" verticalAlign="middle" mb={6}>
+            여기에 내용을 적어주세요. 스타일을 변경하고 싶으시다면 sx 안에 CSS 를 작성해주세요.
+            variant=h1, h2, h3, ..., h6
           </MKTypography>
         </Grid>
-
-        <Grid container spacing={2} xs={12} direction="row">
+        <Grid container mt={0.1} spacing={2} xs={12} direction="row">
           <Grid item xs={4} sm={6} lg={5}>
             <ImageCard image={W20} title="20대 여성" />
           </Grid>
