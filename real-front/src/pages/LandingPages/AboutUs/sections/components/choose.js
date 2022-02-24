@@ -11,14 +11,14 @@ import MKTypography from "components/MKTypography";
 import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
 
 // Face Type Images
-import M20 from "assets/images/faces/20대 남성.png";
-import M30 from "assets/images/faces/30대 남성.png";
-import M40 from "assets/images/faces/40대 남성.png";
-import M50 from "assets/images/faces/50대 남성.png";
-import W20 from "assets/images/faces/20대 여성.png";
-import W30 from "assets/images/faces/30대 여성.png";
-import W40 from "assets/images/faces/40대 여성.png";
-import W50 from "assets/images/faces/50대 여성.png";
+import M20 from "assets/images/faces/20m.png";
+import M30 from "assets/images/faces/30m.png";
+import M40 from "assets/images/faces/40m.png";
+import M50 from "assets/images/faces/50m.png";
+import W20 from "assets/images/faces/20w.png";
+import W30 from "assets/images/faces/30w.png";
+import W40 from "assets/images/faces/40w.png";
+import W50 from "assets/images/faces/50w.png";
 
 const mFaces = [
   [M20, "20대 남성"],

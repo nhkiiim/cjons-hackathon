@@ -31,25 +31,25 @@ import ImageCard from "examples/Cards/BlogCards/ImageCard";
 // import M30 from "assets/images/faces/30대 남성.png";
 // import M40 from "assets/images/faces/40대 남성.png";
 // import M50 from "assets/images/faces/50대 남성.png";
-import W20 from "assets/images/faces/20대 여성.png";
+import W20 from "assets/images/faces/20w.png";
 // import W30 from "assets/images/faces/30대 여성.png";
 // import W40 from "assets/images/faces/40대 여성.png";
 // import W50 from "assets/images/faces/50대 여성.png";
 
 // Eye Type Images
-import E1 from "assets/images/eyes/밀크터치 올데이 롱앤컬 마스카라.png";
-import E2 from "assets/images/eyes/클리오 샤프, 쏘 심플 워터프루프 펜슬라이너.png";
-import E3 from "assets/images/eyes/클리오 킬래쉬 수퍼프루프마스카라.png";
+import E1 from "assets/images/eyes/milk.png";
+import E2 from "assets/images/eyes/clio_sharp.png";
+import E3 from "assets/images/eyes/clio_kill.png";
 
 // Base Type Images
-import B1 from "assets/images/bases/에스쁘아 비글로우 파운데이션.png";
-import B2 from "assets/images/bases/에스쁘아 프레쉬 세팅 파우더.png";
-import B3 from "assets/images/bases/클리오 킬커버 광채 파운데이션.png";
+import B1 from "assets/images/bases/bglow.png";
+import B2 from "assets/images/bases/fresh.png";
+import B3 from "assets/images/bases/killcover.png";
 
 // Lip Type Images
-import L1 from "assets/images/lips/삐아 라스트 벨벳 립 틴트 14종.png";
-import L2 from "assets/images/lips/페리페라 잉크 무드 매트 틴트.png";
-import L3 from "assets/images/lips/MAC 립스틱.png";
+import L1 from "assets/images/lips/bbia.png";
+import L2 from "assets/images/lips/peripera.png";
+import L3 from "assets/images/lips/mac.png";
 
 const eyes = [
   [E1, "밀크터치 올데이 롱앤컬 마스카라"],
