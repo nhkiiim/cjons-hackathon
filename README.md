@@ -1,4 +1,4 @@
-# CJONS-Hackaton
+# CJONS-Hackathon
 
 ## Client 실행 방법
 
