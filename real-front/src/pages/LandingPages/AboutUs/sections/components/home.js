@@ -1,54 +1,54 @@
-import { useEffect } from "react";
-
 // @mui material components
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
+// import Grid from "@mui/material/Grid";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
-import MKTypography from "components/MKTypography";
+import MKButton from "components/MKButton";
+// import MKTypography from "components/MKTypography";
 
 // Material Kit 2 React examples
-import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
+// import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
+// import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
 
 // Face Type Images
-import M20 from "assets/images/faces/20m.png";
-import M30 from "assets/images/faces/30m.png";
-import M40 from "assets/images/faces/40m.png";
-import M50 from "assets/images/faces/50m.png";
-import W20 from "assets/images/faces/20w.png";
-import W30 from "assets/images/faces/30w.png";
-import W40 from "assets/images/faces/40w.png";
-import W50 from "assets/images/faces/50w.png";
+// import M20 from "assets/images/faces/20m.png";
+// import M30 from "assets/images/faces/30m.png";
+// import M40 from "assets/images/faces/40m.png";
+// import M50 from "assets/images/faces/50m.png";
+// import W20 from "assets/images/faces/20w.png";
+// import W30 from "assets/images/faces/30w.png";
+// import W40 from "assets/images/faces/40w.png";
+// import W50 from "assets/images/faces/50w.png";
 
-const mFaces = [
-  [M20, "20대 남성"],
-  [M30, "30대 남성"],
-  [M40, "40대 남성"],
-  [M50, "50대 남성"],
-];
+// const mFaces = [
+//   [M20, "20대 남성"],
+//   [M30, "30대 남성"],
+//   [M40, "40대 남성"],
+//   [M50, "50대 남성"],
+// ];
 
-const wFaces = [
-  [W20, "20대 여성"],
-  [W30, "30대 여성"],
-  [W40, "40대 여성"],
-  [W50, "50대 여성"],
-];
+// const wFaces = [
+//   [W20, "20대 여성"],
+//   [W30, "30대 여성"],
+//   [W40, "40대 여성"],
+//   [W50, "50대 여성"],
+// ];
 
-function Choose({ setStep }) {
-  useEffect(() => {
-    window.scrollTo(0, 510);
-  }, []);
-
+function Home({ setStep }) {
   const onClick = (e) => {
     e.preventDefault();
-    setStep(2);
+    setStep(1);
   };
 
   return (
     <MKBox component="section" py={3}>
       <Container>
-        <Grid
+        <MKBox>첫 화면</MKBox>
+        <MKButton onClick={onClick} color="info">
+          버튼 대용
+        </MKButton>
+        {/* <Grid
           container
           item
           xs={12}
@@ -86,18 +86,18 @@ function Choose({ setStep }) {
               <CenteredBlogCard image={face[0]} title={face[1]} onClick={onClick} />
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
       </Container>
     </MKBox>
   );
 }
 
-Choose.defaultProps = {
+Home.defaultProps = {
   setStep: () => {},
 };
 
-Choose.propTypes = {
+Home.propTypes = {
   setStep: () => {},
 };
 
-export default Choose;
+export default Home;

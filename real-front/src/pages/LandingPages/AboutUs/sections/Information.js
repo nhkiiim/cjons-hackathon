@@ -26,13 +26,21 @@ Coded by www.creative-tim.com
 // import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
 
 import React, { useState } from "react";
+import Home from "./components/home";
 import Choose from "./components/choose";
 import Select from "./components/select";
 import Result from "./components/result";
 
 function Information() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
 
+  if (step === 0) {
+    return (
+      <>
+        <Home setStep={setStep} />
+      </>
+    );
+  }
   if (step === 1) {
     return (
       <>
