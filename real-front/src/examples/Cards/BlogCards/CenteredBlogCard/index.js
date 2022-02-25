@@ -24,7 +24,7 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
-function CenteredBlogCard({ image, title, description, onClick }) {
+function CenteredBlogCard({ image, title, onClick }) {
   return (
     <Card>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
@@ -57,17 +57,18 @@ function CenteredBlogCard({ image, title, description, onClick }) {
         <MKTypography display="inline" variant="h5" textTransform="capitalize" fontWeight="regular">
           {title}
         </MKTypography>
-        <MKBox mt={1} mb={3}>
-          <MKTypography variant="body2" component="p" color="text">
+        <MKBox mt={1} mb={1}>
+          {/* <MKTypography variant="body2" component="p" color="text">
             {description}
-          </MKTypography>
+          </MKTypography> */}
         </MKBox>
         <MKButton
+          // "default","white","primary","secondary","info","success","warning","error","light","dark",
           target="_blank"
           rel="noreferrer"
           variant="gradient"
           size="small"
-          color="info"
+          color="dark"
           onClick={onClick}
         >
           선택
@@ -81,7 +82,6 @@ function CenteredBlogCard({ image, title, description, onClick }) {
 CenteredBlogCard.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
