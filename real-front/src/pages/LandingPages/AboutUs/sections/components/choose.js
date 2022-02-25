@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -7,7 +9,6 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
 // Material Kit 2 React examples
-// import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
 
 // Face Type Images
@@ -35,6 +36,10 @@ const wFaces = [
 ];
 
 function Choose({ setStep }) {
+  useEffect(() => {
+    window.scrollTo(0, 510);
+  }, []);
+
   const onClick = (e) => {
     e.preventDefault();
     setStep(2);
@@ -59,15 +64,25 @@ function Choose({ setStep }) {
           </MKTypography>
         </Grid>
 
-        <Grid container mt={0.1} spacing={4} columns={24} alignItems="center">
+        <Grid
+          container
+          mt={0.1}
+          spacing={-22}
+          columns={24}
+          justifyContent="center"
+          alignItems="center"
+          sx={{ marginLeft: "auto", marginRight: "auto" }}
+        >
           {mFaces.map((face) => (
-            <Grid item xs={12} lg={6} sx={{ ml: "auto", mt: { xs: 3, lg: 0 }, mb: 2 }}>
+            <Grid item xs={3} lg={5} sx={{ ml: "auto", mr: "auto", mt: { xs: 3, lg: 0 }, mb: 2 }}>
               <CenteredBlogCard image={face[0]} title={face[1]} onClick={onClick} />
             </Grid>
           ))}
 
+          <Grid item xs={12} lg={20} mt={2} mb={2} />
+
           {wFaces.map((face) => (
-            <Grid item xs={12} lg={6} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
+            <Grid item xs={3} lg={5} sx={{ ml: "auto", mr: "auto", mt: { xs: 3, lg: 0 } }}>
               <CenteredBlogCard image={face[0]} title={face[1]} onClick={onClick} />
             </Grid>
           ))}
