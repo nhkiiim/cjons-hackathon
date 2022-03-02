@@ -13,13 +13,12 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Slide from "@mui/material/Slide";
 
@@ -41,8 +40,8 @@ import ImageCard from "examples/Cards/BlogCards/ImageCard";
 // import M30 from "assets/images/faces/30대 남성.png";
 // import M40 from "assets/images/faces/40대 남성.png";
 // import M50 from "assets/images/faces/50대 남성.png";
-import W20 from "assets/images/faces/20w.png";
-// import W30 from "assets/images/faces/30대 여성.png";
+// import W20 from "assets/images/faces/20w.png";
+import W30 from "assets/images/faces/30w.png";
 // import W40 from "assets/images/faces/40대 여성.png";
 // import W50 from "assets/images/faces/50대 여성.png";
 
@@ -88,6 +87,11 @@ import LA2 from "assets/images/lip-apply/lip-apply-2.png";
 import LA3 from "assets/images/lip-apply/lip-apply-3.png";
 import LA4 from "assets/images/lip-apply/lip-apply-4.png";
 
+// Result Images
+import er1 from "assets/images/results/eye-result-1.png";
+import br1 from "assets/images/results/base-result-1.png";
+import lr1 from "assets/images/results/lip-result-1.png";
+
 const eyes = [
   [E1, "밀크터치 올데이 롱앤컬 마스카라"],
   [E2, "클리오 샤프, 쏘 심플 워터프루프 펜슬라이너"],
@@ -115,10 +119,15 @@ const baseApplys = [BA0, BA1, BA2, BA3, BA4];
 const lipColors = [LC1, LC2, LC3, LC4];
 const lipApplys = [LA0, LA1, LA2, LA3, LA4];
 
+const faces = [W30, er1, br1, lr1];
+
 function Select({ setStep }) {
-  useEffect(() => {
-    window.scrollTo(0, 510);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 510);
+  // }, []);
+
+  // Face State
+  const [faceType, setFaceType] = useState(0);
 
   const onClickNext = (e) => {
     e.preventDefault();
@@ -160,7 +169,7 @@ function Select({ setStep }) {
         </Grid>
         <Grid container mt={0.1} spacing={2} xs={12} direction="row" id="scroll-container">
           <Grid item xs={4} sm={6} lg={5}>
-            <ImageCard image={W20} title="20대 여성" />
+            <ImageCard image={faces[faceType]} title="WARM 톤" />
           </Grid>
 
           <Grid xs={1} />
@@ -179,7 +188,7 @@ function Select({ setStep }) {
             {/* Eye */}
             <Grid container item xs={12} spacing={3}>
               <MKTypography variant="h5">Eyes</MKTypography>
-              <Grid container item xs={12} spacing={3}>
+              <Grid container item xs={12} spacing={1}>
                 {eyes.map((eye, i) => (
                   <>
                     <Grid
@@ -256,9 +265,17 @@ function Select({ setStep }) {
                           <Divider sx={{ my: 0 }} />
                           <MKBox display="flex" justifyContent="flex-end" p={1.5}>
                             <MKButton
-                              variant="gradient"
-                              color="dark"
-                              onClick={() => toggleModal(i)}
+                              onClick={() => {
+                                toggleModal(i);
+                                setFaceType(1);
+                              }}
+                              variant="contained"
+                              color="primary"
+                              sx={{
+                                backgroundColor: "#ff9d8c",
+                                color: "white",
+                                "&:hover": { backgroundColor: "#ff9d8c" },
+                              }}
                             >
                               선택 완료
                             </MKButton>
@@ -356,9 +373,17 @@ function Select({ setStep }) {
                           <Divider sx={{ my: 0 }} />
                           <MKBox display="flex" justifyContent="flex-end" p={1.5}>
                             <MKButton
-                              variant="gradient"
-                              color="dark"
-                              onClick={() => toggleModal(3 + i)}
+                              onClick={() => {
+                                toggleModal(3 + i);
+                                setFaceType(2);
+                              }}
+                              variant="contained"
+                              color="primary"
+                              sx={{
+                                backgroundColor: "#ff9d8c",
+                                color: "white",
+                                "&:hover": { backgroundColor: "#ff9d8c" },
+                              }}
                             >
                               선택 완료
                             </MKButton>
@@ -453,9 +478,17 @@ function Select({ setStep }) {
                           <Divider sx={{ my: 0 }} />
                           <MKBox display="flex" justifyContent="flex-end" p={1.5}>
                             <MKButton
-                              variant="gradient"
-                              color="dark"
-                              onClick={() => toggleModal(6 + i)}
+                              onClick={() => {
+                                toggleModal(6 + i);
+                                setFaceType(3);
+                              }}
+                              variant="contained"
+                              color="primary"
+                              sx={{
+                                backgroundColor: "#ff9d8c",
+                                color: "white",
+                                "&:hover": { backgroundColor: "#ff9d8c" },
+                              }}
                             >
                               선택 완료
                             </MKButton>
@@ -469,9 +502,18 @@ function Select({ setStep }) {
             </Grid>
 
             <Grid container justifyContent="flex-end">
-              <Button size="large" variant="contained" color="info" onClick={onClickNext}>
+              <MKButton
+                onClick={onClickNext}
+                variant="contained"
+                color="primary"
+                sx={{
+                  backgroundColor: "#ff9d8c",
+                  color: "white",
+                  "&:hover": { backgroundColor: "#ff9d8c" },
+                }}
+              >
                 선택 완료
-              </Button>
+              </MKButton>
             </Grid>
           </Grid>
         </Grid>

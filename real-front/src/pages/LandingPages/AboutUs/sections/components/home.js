@@ -41,11 +41,23 @@ function Home({ setStep }) {
     setStep(1);
   };
 
+  // variant: "text", "contained", "outlined", "gradient"
+  // color:"default", "white", "primary", "secondary", "info", "success", "warning", "error", "light", "dark",
+
   return (
     <MKBox component="section" py={3}>
       <Container>
         <MKBox>첫 화면</MKBox>
-        <MKButton onClick={onClick} color="info">
+        <MKButton
+          onClick={onClick}
+          variant="contained"
+          color="primary"
+          sx={{
+            backgroundColor: "#ff9d8c",
+            color: "white",
+            "&:hover": { backgroundColor: "#ff9d8c" },
+          }}
+        >
           버튼 대용
         </MKButton>
         {/* <Grid
