@@ -162,12 +162,14 @@ function Select({ setStep }) {
           flexDirection="column"
           sx={{ mx: "auto", textAlign: "center", marginBottom: "10px" }}
         >
-          <MKTypography variant="h3" verticalAlign="middle" mb={6}>
-            여기에 내용을 적어주세요. 스타일을 변경하고 싶으시다면 sx 안에 CSS 를 작성해주세요.
-            variant=h1, h2, h3, ..., h6
+          <MKTypography variant="h3" color="black" fontWeight="light" opacity={1} mt={3} mb={0}>
+            화장품 선택
+          </MKTypography>
+          <MKTypography variant="body2" color="black" opacity={0.8} mt={1} mb={4}>
+            테스트 하고 싶은 화장품을 골라주세요
           </MKTypography>
         </Grid>
-        <Grid container mt={0.1} spacing={2} xs={12} direction="row" id="scroll-container">
+        <Grid container mt={0.1} spacing={2} xs={8} direction="row" id="scroll-container">
           <Grid item xs={4} sm={6} lg={5}>
             <ImageCard image={faces[faceType]} title="WARM 톤" />
           </Grid>

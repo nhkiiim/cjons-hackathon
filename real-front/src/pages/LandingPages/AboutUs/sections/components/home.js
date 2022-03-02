@@ -5,11 +5,16 @@ import Container from "@mui/material/Container";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
-// import MKTypography from "components/MKTypography";
+import MKTypography from "components/MKTypography";
+// import AvatarCard from "examples/Cards/BlogCards/AvatarCard";
 
 // Material Kit 2 React examples
 // import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 // import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
+
+import p1 from "assets/images/p1.png";
+import p2 from "assets/images/p2.png";
+import p4 from "assets/images/p4.png";
 
 // Face Type Images
 // import M20 from "assets/images/faces/20m.png";
@@ -47,19 +52,33 @@ function Home({ setStep }) {
   return (
     <MKBox component="section" py={3}>
       <Container>
-        <MKBox>첫 화면</MKBox>
-        <MKButton
-          onClick={onClick}
-          variant="contained"
-          color="primary"
-          sx={{
-            backgroundColor: "#ff9d8c",
-            color: "white",
-            "&:hover": { backgroundColor: "#ff9d8c" },
-          }}
-        >
-          버튼 대용
-        </MKButton>
+        <div align="center">
+          <MKTypography variant="h3" color="black" fontWeight="light" opacity={1} mt={3} mb={1}>
+            아름다움을 담다
+          </MKTypography>
+          <MKTypography variant="body2" color="black" opacity={0.8} mt={1} mb={4}>
+            버추얼 휴먼으로 화장품을 테스트 해보세요
+          </MKTypography>
+          <div align="center">
+            <img height="400" src={p1} alt="no" /> &nbsp;
+            <img height="400" src={p4} alt="no" /> &nbsp;
+            <img height="400" src={p2} alt="no" /> &nbsp;
+          </div>
+          <MKTypography mt={1}>&nbsp;</MKTypography>
+          <MKButton
+            onClick={onClick}
+            variant="contained"
+            color="primary"
+            sx={{
+              backgroundColor: "#ff9d8c",
+              color: "white",
+              "&:hover": { backgroundColor: "#ff9d8c" },
+            }}
+          >
+            START
+          </MKButton>
+          <MKTypography mt={1}>&nbsp;</MKTypography>
+        </div>
         {/* <Grid
           container
           item

@@ -58,9 +58,11 @@ function Choose({ setStep }) {
           flexDirection="column"
           sx={{ mx: "auto", textAlign: "center" }}
         >
-          <MKTypography variant="h3" verticalAlign="middle" mb={6} sx={{}}>
-            여기에 내용을 적어주세요. 스타일을 변경하고 싶으시다면 sx 안에 CSS 를 작성해주세요.
-            variant=h1, h2, ..., h6
+          <MKTypography variant="h3" color="black" fontWeight="light" opacity={1} mt={3} mb={0}>
+            버추얼 휴먼 선택
+          </MKTypography>
+          <MKTypography variant="body2" color="black" opacity={0.8} mt={1} mb={4}>
+            원하는 피부톤의 버추얼 휴먼을 선택하세요
           </MKTypography>
         </Grid>
 
@@ -87,6 +89,7 @@ function Choose({ setStep }) {
             </Grid>
           ))}
         </Grid>
+        <MKTypography mt={1}>&nbsp;</MKTypography>
       </Container>
     </MKBox>
   );
