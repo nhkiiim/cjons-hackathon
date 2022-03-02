@@ -60,9 +60,12 @@ function TransparentBlogCard({ image, title }) {
         background: "transparent",
         boxShadow: "none",
         overflow: "visible",
+        padding: "5px 5px",
 
         "&:hover": {
+          boxSizing: "content-box",
           cursor: "pointer",
+          boxShadow: "1px 1.5px 4px #ababab",
         },
       }}
     >
