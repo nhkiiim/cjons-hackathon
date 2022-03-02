@@ -54,7 +54,7 @@ function CenteredBlogCard({ image, title, onClick }) {
         />
       </MKBox>
       <MKBox p={3} mt={-1} textAlign="center">
-        <MKTypography display="inline" variant="h5" textTransform="capitalize" fontWeight="regular">
+        <MKTypography display="inline" variant="h6" textTransform="capitalize" fontWeight="regular">
           {title}
         </MKTypography>
         <MKBox mt={1} mb={1}>
@@ -63,13 +63,17 @@ function CenteredBlogCard({ image, title, onClick }) {
           </MKTypography> */}
         </MKBox>
         <MKButton
-          // "default","white","primary","secondary","info","success","warning","error","light","dark",
           target="_blank"
           rel="noreferrer"
-          variant="gradient"
           size="small"
-          color="dark"
           onClick={onClick}
+          variant="contained"
+          color="primary"
+          sx={{
+            backgroundColor: "#ff9d8c",
+            color: "white",
+            "&:hover": { backgroundColor: "#ff9d8c" },
+          }}
         >
           선택
         </MKButton>
