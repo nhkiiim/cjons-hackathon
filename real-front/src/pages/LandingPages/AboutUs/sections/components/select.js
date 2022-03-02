@@ -21,6 +21,7 @@ import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
 import Divider from "@mui/material/Divider";
 import Slide from "@mui/material/Slide";
+import ImageList from "@mui/material/ImageList";
 
 // @mui icons
 import CloseIcon from "@mui/icons-material/Close";
@@ -169,355 +170,373 @@ function Select({ setStep }) {
             테스트 하고 싶은 화장품을 골라주세요
           </MKTypography>
         </Grid>
-        <Grid container mt={0.1} spacing={2} xs={8} direction="row" id="scroll-container">
-          <Grid item xs={4} sm={6} lg={5}>
+
+        {/* container */}
+        <Grid
+          container
+          item
+          mt={0.1}
+          spacing={6}
+          xs={12}
+          direction="row"
+          justifyContent="center"
+          sx={{ marginLeft: "auto", marginRight: "auto" }}
+        >
+          <Grid item xs={4} sm={6} lg={4}>
             <ImageCard image={faces[faceType]} title="WARM 톤" />
           </Grid>
 
-          <Grid xs={1} />
+          <Grid xs={0.5} />
 
-          <Grid
-            container
-            xs={6}
-            spacing={1}
+          <ImageList
             sx={{
-              "& .selected": {
-                borderRadius: "10px",
-                boxShadow: "0px 2.5px 5px #c4c4c4",
-              },
+              position: "relative",
+              top: 0,
+              left: 10,
+              width: 500,
+              height: 400,
+              marginTop: 3,
+              paddingTop: 3,
+              paddingLeft: 3,
+            }}
+            cols={1}
+            rowHeight={165}
+          >
+            <Grid container xs={12} spacing={1}>
+              {/* Eye */}
+              <Grid container item xs={12} spacing={3}>
+                <MKTypography variant="h5">Eyes</MKTypography>
+                <Grid container item xs={12} spacing={1}>
+                  {eyes.map((eye, i) => (
+                    <>
+                      <Grid
+                        item
+                        xs={4}
+                        sm={6}
+                        lg={4}
+                        onClick={() => toggleModal(i)}
+                        sx={{
+                          padding: "10px 20px 0px 0px",
+                        }}
+                      >
+                        <TransparentBlogCard image={eye[0]} title={eye[1]} />
+                      </Grid>
+                      <Modal
+                        open={show[i]}
+                        onClose={() => toggleModal(i)}
+                        sx={{
+                          display: "grid",
+                          placeItems: "center",
+                        }}
+                      >
+                        <Slide direction="down" in={show[i]} timeout={500}>
+                          <MKBox
+                            position="relative"
+                            width="500px"
+                            display="flex"
+                            flexDirection="column"
+                            borderRadius="xl"
+                            bgColor="white"
+                            shadow="xl"
+                            sx={{
+                              "&:focus": {
+                                outline: "none",
+                              },
+                            }}
+                          >
+                            <MKBox
+                              display="flex"
+                              alginItems="center"
+                              justifyContent="space-between"
+                              p={2}
+                            >
+                              <MKTypography variant="h5">{eye[1]}</MKTypography>
+                              <CloseIcon
+                                fontSize="medium"
+                                sx={{ cursor: "pointer" }}
+                                onClick={() => toggleModal(i)}
+                              />
+                            </MKBox>
+                            <Divider sx={{ my: 0 }} />
+                            <Grid
+                              container
+                              spacing="25"
+                              flexDirection="row"
+                              sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
+                            >
+                              {eyeColors.map((eyeColor, eyeColorIndex) => (
+                                <>
+                                  <Grid item lg="3" onClick={() => setShowEye(1 + eyeColorIndex)}>
+                                    <TransparentImageCard image={eyeColor} title="eyeColor" />
+                                  </Grid>
+                                </>
+                              ))}
+                            </Grid>
+
+                            <Divider sx={{ my: 0 }} />
+                            <>
+                              <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
+                                <TransparentImageCard image={eyeApplys[showEye]} title="eyeApply" />
+                              </Grid>
+                            </>
+
+                            <Divider sx={{ my: 0 }} />
+                            <MKBox display="flex" justifyContent="flex-end" p={1.5}>
+                              <MKButton
+                                onClick={() => {
+                                  toggleModal(i);
+                                  setFaceType(1);
+                                }}
+                                variant="contained"
+                                color="primary"
+                                sx={{
+                                  backgroundColor: "#ff9d8c",
+                                  color: "white",
+                                  "&:hover": { backgroundColor: "#ff9d8c" },
+                                }}
+                              >
+                                선택 완료
+                              </MKButton>
+                            </MKBox>
+                          </MKBox>
+                        </Slide>
+                      </Modal>
+                    </>
+                  ))}
+                </Grid>
+              </Grid>
+
+              {/* Base */}
+              <Grid container item xs={12} spacing={3}>
+                <MKTypography variant="h5" mt={4}>
+                  Bases
+                </MKTypography>
+                <Grid container item xs={12} spacing={3}>
+                  {bases.map((base, i) => (
+                    <>
+                      <Grid
+                        item
+                        xs={6}
+                        sm={6}
+                        lg={4}
+                        onClick={() => toggleModal(3 + i)}
+                        sx={{
+                          padding: "10px 25px 0px 0px",
+                        }}
+                      >
+                        <TransparentBlogCard image={base[0]} title={base[1]} />
+                      </Grid>
+                      <Modal
+                        open={show[3 + i]}
+                        onClose={() => toggleModal(3 + i)}
+                        sx={{
+                          display: "grid",
+                          placeItems: "center",
+                        }}
+                      >
+                        <Slide direction="down" in={show[3 + i]} timeout={500}>
+                          <MKBox
+                            position="relative"
+                            width="500px"
+                            display="flex"
+                            flexDirection="column"
+                            borderRadius="xl"
+                            bgColor="white"
+                            shadow="xl"
+                            sx={{
+                              "&:focus": {
+                                outline: "none",
+                              },
+                            }}
+                          >
+                            <MKBox
+                              display="flex"
+                              alginItems="center"
+                              justifyContent="space-between"
+                              p={2}
+                            >
+                              <MKTypography variant="h5">{base[1]}</MKTypography>
+                              <CloseIcon
+                                fontSize="medium"
+                                sx={{ cursor: "pointer" }}
+                                onClick={() => toggleModal(3 + i)}
+                              />
+                            </MKBox>
+                            <Divider sx={{ my: 0 }} />
+                            <Grid
+                              container
+                              spacing="25"
+                              flexDirection="row"
+                              sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
+                            >
+                              {baseColors.map((baseColor, baseColorIndex) => (
+                                <>
+                                  <Grid item lg="3" onClick={() => setShowBase(1 + baseColorIndex)}>
+                                    <TransparentImageCard image={baseColor} title="baseColor" />
+                                  </Grid>
+                                </>
+                              ))}
+                            </Grid>
+
+                            <Divider sx={{ my: 0 }} />
+                            <>
+                              <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
+                                <TransparentImageCard
+                                  image={baseApplys[showBase]}
+                                  title="baseApply"
+                                />
+                              </Grid>
+                            </>
+
+                            <Divider sx={{ my: 0 }} />
+                            <MKBox display="flex" justifyContent="flex-end" p={1.5}>
+                              <MKButton
+                                onClick={() => {
+                                  toggleModal(3 + i);
+                                  setFaceType(2);
+                                }}
+                                variant="contained"
+                                color="primary"
+                                sx={{
+                                  backgroundColor: "#ff9d8c",
+                                  color: "white",
+                                  "&:hover": { backgroundColor: "#ff9d8c" },
+                                }}
+                              >
+                                선택 완료
+                              </MKButton>
+                            </MKBox>
+                          </MKBox>
+                        </Slide>
+                      </Modal>
+                    </>
+                  ))}
+                </Grid>
+              </Grid>
+
+              {/* lip */}
+              <Grid container item xs={12} spacing={3}>
+                <MKTypography variant="h5" mt={4}>
+                  Lips
+                </MKTypography>
+                <Grid container item xs={12} spacing={3}>
+                  {lips.map((lip, i) => (
+                    <>
+                      <Grid
+                        item
+                        xs={6}
+                        sm={6}
+                        lg={4}
+                        onClick={() => toggleModal(6 + i)}
+                        sx={{
+                          padding: "10px 25px 0px 0px",
+                        }}
+                      >
+                        <TransparentBlogCard image={lip[0]} title={lip[1]} />
+                      </Grid>
+                      <Modal
+                        open={show[6 + i]}
+                        onClose={() => toggleModal(6 + i)}
+                        sx={{
+                          display: "grid",
+                          placeItems: "center",
+                        }}
+                      >
+                        <Slide direction="down" in={show[6 + i]} timeout={500}>
+                          <MKBox
+                            position="relative"
+                            width="500px"
+                            display="flex"
+                            flexDirection="column"
+                            borderRadius="xl"
+                            bgColor="white"
+                            shadow="xl"
+                            sx={{
+                              "&:focus": {
+                                outline: "none",
+                              },
+                            }}
+                          >
+                            <MKBox
+                              display="flex"
+                              alginItems="center"
+                              justifyContent="space-between"
+                              p={2}
+                            >
+                              <MKTypography variant="h5">{lip[1]}</MKTypography>
+                              <CloseIcon
+                                fontSize="medium"
+                                sx={{ cursor: "pointer" }}
+                                onClick={() => toggleModal(6 + i)}
+                              />
+                            </MKBox>
+                            <Divider sx={{ my: 0 }} />
+                            <Grid
+                              container
+                              spacing="25"
+                              flexDirection="row"
+                              sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
+                            >
+                              {lipColors.map((lipColor, lipColorIndex) => (
+                                <>
+                                  <Grid item lg="3" onClick={() => setShowLip(1 + lipColorIndex)}>
+                                    <TransparentImageCard image={lipColor} title="lipColor" />
+                                  </Grid>
+                                </>
+                              ))}
+                            </Grid>
+
+                            <Divider sx={{ my: 0 }} />
+                            <>
+                              <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
+                                <TransparentImageCard image={lipApplys[showLip]} title="lipApply" />
+                              </Grid>
+                            </>
+
+                            <Divider sx={{ my: 0 }} />
+                            <MKBox display="flex" justifyContent="flex-end" p={1.5}>
+                              <MKButton
+                                onClick={() => {
+                                  toggleModal(6 + i);
+                                  setFaceType(3);
+                                }}
+                                variant="contained"
+                                color="primary"
+                                sx={{
+                                  backgroundColor: "#ff9d8c",
+                                  color: "white",
+                                  "&:hover": { backgroundColor: "#ff9d8c" },
+                                }}
+                              >
+                                선택 완료
+                              </MKButton>
+                            </MKBox>
+                          </MKBox>
+                        </Slide>
+                      </Modal>
+                    </>
+                  ))}
+                </Grid>
+              </Grid>
+            </Grid>
+          </ImageList>
+
+          <Grid xs={1} />
+        </Grid>
+
+        <Grid container justifyContent="center" sx={{ marginTop: "50px" }}>
+          <MKButton
+            onClick={onClickNext}
+            variant="contained"
+            color="primary"
+            sx={{
+              backgroundColor: "#ff9d8c",
+              color: "white",
+              "&:hover": { backgroundColor: "#ff9d8c" },
             }}
           >
-            {/* Eye */}
-            <Grid container item xs={12} spacing={3}>
-              <MKTypography variant="h5">Eyes</MKTypography>
-              <Grid container item xs={12} spacing={1}>
-                {eyes.map((eye, i) => (
-                  <>
-                    <Grid
-                      item
-                      xs={6}
-                      sm={6}
-                      lg={4}
-                      onClick={() => toggleModal(i)}
-                      sx={{
-                        padding: "10px 20px 0px 0px",
-                      }}
-                    >
-                      <TransparentBlogCard image={eye[0]} title={eye[1]} />
-                    </Grid>
-                    <Modal
-                      open={show[i]}
-                      onClose={() => toggleModal(i)}
-                      sx={{
-                        display: "grid",
-                        placeItems: "center",
-                      }}
-                    >
-                      <Slide direction="down" in={show[i]} timeout={500}>
-                        <MKBox
-                          position="relative"
-                          width="500px"
-                          display="flex"
-                          flexDirection="column"
-                          borderRadius="xl"
-                          bgColor="white"
-                          shadow="xl"
-                          sx={{
-                            "&:focus": {
-                              outline: "none",
-                            },
-                          }}
-                        >
-                          <MKBox
-                            display="flex"
-                            alginItems="center"
-                            justifyContent="space-between"
-                            p={2}
-                          >
-                            <MKTypography variant="h5">{eye[1]}</MKTypography>
-                            <CloseIcon
-                              fontSize="medium"
-                              sx={{ cursor: "pointer" }}
-                              onClick={() => toggleModal(i)}
-                            />
-                          </MKBox>
-                          <Divider sx={{ my: 0 }} />
-                          <Grid
-                            container
-                            spacing="25"
-                            flexDirection="row"
-                            sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
-                          >
-                            {eyeColors.map((eyeColor, eyeColorIndex) => (
-                              <>
-                                <Grid item lg="3" onClick={() => setShowEye(1 + eyeColorIndex)}>
-                                  <TransparentImageCard image={eyeColor} title="eyeColor" />
-                                </Grid>
-                              </>
-                            ))}
-                          </Grid>
-
-                          <Divider sx={{ my: 0 }} />
-                          <>
-                            <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
-                              <TransparentImageCard image={eyeApplys[showEye]} title="eyeApply" />
-                            </Grid>
-                          </>
-
-                          <Divider sx={{ my: 0 }} />
-                          <MKBox display="flex" justifyContent="flex-end" p={1.5}>
-                            <MKButton
-                              onClick={() => {
-                                toggleModal(i);
-                                setFaceType(1);
-                              }}
-                              variant="contained"
-                              color="primary"
-                              sx={{
-                                backgroundColor: "#ff9d8c",
-                                color: "white",
-                                "&:hover": { backgroundColor: "#ff9d8c" },
-                              }}
-                            >
-                              선택 완료
-                            </MKButton>
-                          </MKBox>
-                        </MKBox>
-                      </Slide>
-                    </Modal>
-                  </>
-                ))}
-              </Grid>
-            </Grid>
-
-            {/* Base */}
-            <Grid container item xs={12} spacing={3}>
-              <MKTypography variant="h5" mt={4}>
-                Bases
-              </MKTypography>
-              <Grid container item xs={12} spacing={3}>
-                {bases.map((base, i) => (
-                  <>
-                    <Grid
-                      item
-                      xs={6}
-                      sm={6}
-                      lg={4}
-                      onClick={() => toggleModal(3 + i)}
-                      sx={{
-                        padding: "10px 25px 0px 0px",
-                      }}
-                    >
-                      <TransparentBlogCard image={base[0]} title={base[1]} />
-                    </Grid>
-                    <Modal
-                      open={show[3 + i]}
-                      onClose={() => toggleModal(3 + i)}
-                      sx={{
-                        display: "grid",
-                        placeItems: "center",
-                      }}
-                    >
-                      <Slide direction="down" in={show[3 + i]} timeout={500}>
-                        <MKBox
-                          position="relative"
-                          width="500px"
-                          display="flex"
-                          flexDirection="column"
-                          borderRadius="xl"
-                          bgColor="white"
-                          shadow="xl"
-                          sx={{
-                            "&:focus": {
-                              outline: "none",
-                            },
-                          }}
-                        >
-                          <MKBox
-                            display="flex"
-                            alginItems="center"
-                            justifyContent="space-between"
-                            p={2}
-                          >
-                            <MKTypography variant="h5">{base[1]}</MKTypography>
-                            <CloseIcon
-                              fontSize="medium"
-                              sx={{ cursor: "pointer" }}
-                              onClick={() => toggleModal(3 + i)}
-                            />
-                          </MKBox>
-                          <Divider sx={{ my: 0 }} />
-                          <Grid
-                            container
-                            spacing="25"
-                            flexDirection="row"
-                            sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
-                          >
-                            {baseColors.map((baseColor, baseColorIndex) => (
-                              <>
-                                <Grid item lg="3" onClick={() => setShowBase(1 + baseColorIndex)}>
-                                  <TransparentImageCard image={baseColor} title="baseColor" />
-                                </Grid>
-                              </>
-                            ))}
-                          </Grid>
-
-                          <Divider sx={{ my: 0 }} />
-                          <>
-                            <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
-                              <TransparentImageCard
-                                image={baseApplys[showBase]}
-                                title="baseApply"
-                              />
-                            </Grid>
-                          </>
-
-                          <Divider sx={{ my: 0 }} />
-                          <MKBox display="flex" justifyContent="flex-end" p={1.5}>
-                            <MKButton
-                              onClick={() => {
-                                toggleModal(3 + i);
-                                setFaceType(2);
-                              }}
-                              variant="contained"
-                              color="primary"
-                              sx={{
-                                backgroundColor: "#ff9d8c",
-                                color: "white",
-                                "&:hover": { backgroundColor: "#ff9d8c" },
-                              }}
-                            >
-                              선택 완료
-                            </MKButton>
-                          </MKBox>
-                        </MKBox>
-                      </Slide>
-                    </Modal>
-                  </>
-                ))}
-              </Grid>
-            </Grid>
-
-            {/* lip */}
-            <Grid container item xs={12} spacing={3}>
-              <MKTypography variant="h5" mt={4}>
-                Lips
-              </MKTypography>
-              <Grid container item xs={12} spacing={3}>
-                {lips.map((lip, i) => (
-                  <>
-                    <Grid
-                      item
-                      xs={6}
-                      sm={6}
-                      lg={4}
-                      onClick={() => toggleModal(6 + i)}
-                      sx={{
-                        padding: "10px 25px 0px 0px",
-                      }}
-                    >
-                      <TransparentBlogCard image={lip[0]} title={lip[1]} />
-                    </Grid>
-                    <Modal
-                      open={show[6 + i]}
-                      onClose={() => toggleModal(6 + i)}
-                      sx={{
-                        display: "grid",
-                        placeItems: "center",
-                      }}
-                    >
-                      <Slide direction="down" in={show[6 + i]} timeout={500}>
-                        <MKBox
-                          position="relative"
-                          width="500px"
-                          display="flex"
-                          flexDirection="column"
-                          borderRadius="xl"
-                          bgColor="white"
-                          shadow="xl"
-                          sx={{
-                            "&:focus": {
-                              outline: "none",
-                            },
-                          }}
-                        >
-                          <MKBox
-                            display="flex"
-                            alginItems="center"
-                            justifyContent="space-between"
-                            p={2}
-                          >
-                            <MKTypography variant="h5">{lip[1]}</MKTypography>
-                            <CloseIcon
-                              fontSize="medium"
-                              sx={{ cursor: "pointer" }}
-                              onClick={() => toggleModal(6 + i)}
-                            />
-                          </MKBox>
-                          <Divider sx={{ my: 0 }} />
-                          <Grid
-                            container
-                            spacing="25"
-                            flexDirection="row"
-                            sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
-                          >
-                            {lipColors.map((lipColor, lipColorIndex) => (
-                              <>
-                                <Grid item lg="3" onClick={() => setShowLip(1 + lipColorIndex)}>
-                                  <TransparentImageCard image={lipColor} title="lipColor" />
-                                </Grid>
-                              </>
-                            ))}
-                          </Grid>
-
-                          <Divider sx={{ my: 0 }} />
-                          <>
-                            <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
-                              <TransparentImageCard image={lipApplys[showLip]} title="lipApply" />
-                            </Grid>
-                          </>
-
-                          <Divider sx={{ my: 0 }} />
-                          <MKBox display="flex" justifyContent="flex-end" p={1.5}>
-                            <MKButton
-                              onClick={() => {
-                                toggleModal(6 + i);
-                                setFaceType(3);
-                              }}
-                              variant="contained"
-                              color="primary"
-                              sx={{
-                                backgroundColor: "#ff9d8c",
-                                color: "white",
-                                "&:hover": { backgroundColor: "#ff9d8c" },
-                              }}
-                            >
-                              선택 완료
-                            </MKButton>
-                          </MKBox>
-                        </MKBox>
-                      </Slide>
-                    </Modal>
-                  </>
-                ))}
-              </Grid>
-            </Grid>
-
-            <Grid container justifyContent="flex-end">
-              <MKButton
-                onClick={onClickNext}
-                variant="contained"
-                color="primary"
-                sx={{
-                  backgroundColor: "#ff9d8c",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#ff9d8c" },
-                }}
-              >
-                선택 완료
-              </MKButton>
-            </Grid>
-          </Grid>
+            선택 완료
+          </MKButton>
         </Grid>
       </Container>
     </MKBox>
