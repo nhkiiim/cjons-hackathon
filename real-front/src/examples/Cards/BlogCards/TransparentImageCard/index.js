@@ -46,7 +46,7 @@ function TransparentImageCard({ image, title }) {
         sx={{
           backgroundImage: `url(${image})`,
           transform: "scale(0.94)",
-          filter: "blur(12px)",
+          filter: "blur(2px)",
           backgroundSize: "cover",
         }}
       />

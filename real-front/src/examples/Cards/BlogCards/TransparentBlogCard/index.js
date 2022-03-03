@@ -34,22 +34,7 @@ function TransparentBlogCard({ image, title }) {
         shadow="md"
         width="100%"
         position="relative"
-        zIndex={1}
-      />
-      <MKBox
-        borderRadius="lg"
-        shadow="md"
-        width="100%"
-        height="100%"
-        position="absolute"
-        left={0}
-        top={0}
-        sx={{
-          backgroundImage: `url(${image})`,
-          transform: "scale(0.94)",
-          filter: "blur(12px)",
-          backgroundSize: "cover",
-        }}
+        zIndex={0.5}
       />
     </MKBox>
   );
@@ -72,7 +57,7 @@ function TransparentBlogCard({ image, title }) {
       {imageTemplate}
 
       <MKBox pt={2} pb={3}>
-        <MKTypography variant="h5" gutterBottom>
+        <MKTypography variant="body2" gutterBottom>
           {title}
         </MKTypography>
       </MKBox>
