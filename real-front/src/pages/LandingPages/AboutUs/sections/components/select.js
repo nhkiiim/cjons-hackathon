@@ -89,9 +89,11 @@ import LA3 from "assets/images/lip-apply/lip-apply-3.png";
 import LA4 from "assets/images/lip-apply/lip-apply-4.png";
 
 // Result Images
-import er1 from "assets/images/results/eye-result-1.png";
-import br1 from "assets/images/results/base-result-1.png";
-import lr1 from "assets/images/results/lip-result-1.png";
+import r1 from "assets/images/results/r1.png";
+import r2 from "assets/images/results/r2.png";
+import r3 from "assets/images/results/r3.png";
+import r4 from "assets/images/results/r4.png";
+import r5 from "assets/images/results/r5.png";
 
 const eyes = [
   [E1, "롬앤 망고튤립"],
@@ -120,12 +122,15 @@ const baseApplys = [BA0, BA1, BA2, BA3, BA4];
 const lipColors = [LC1, LC2, LC3, LC4];
 const lipApplys = [LA0, LA1, LA2, LA3, LA4];
 
-const faces = [W30, er1, br1, lr1];
+const faces = [W30, r1, r1, r1, r1, r2, r2, r2, r2, r3, r4, r5, r3];
 
 function Select({ setStep }) {
   // useEffect(() => {
   //   window.scrollTo(0, 510);
   // }, []);
+
+  // Cosmetic State
+  const [cosType, setCosType] = useState(0);
 
   // Face State
   const [faceType, setFaceType] = useState(0);
@@ -200,14 +205,12 @@ function Select({ setStep }) {
               paddingLeft: 3,
             }}
             cols={1}
-            rowHeight={165}
+            rowHeight={170}
           >
             <Grid container xs={12} spacing={1}>
               {/* Base */}
               <Grid container item xs={12} spacing={3}>
-                <MKTypography variant="h5" mt={4}>
-                  Bases
-                </MKTypography>
+                <MKTypography variant="h5">Bases</MKTypography>
                 <Grid container item xs={12} spacing={3}>
                   {bases.map((base, i) => (
                     <>
@@ -268,7 +271,14 @@ function Select({ setStep }) {
                             >
                               {baseColors.map((baseColor, baseColorIndex) => (
                                 <>
-                                  <Grid item lg="3" onClick={() => setShowBase(1 + baseColorIndex)}>
+                                  <Grid
+                                    item
+                                    lg="3"
+                                    onClick={() => {
+                                      setShowBase(1 + baseColorIndex);
+                                      setCosType(1 + baseColorIndex);
+                                    }}
+                                  >
                                     <TransparentImageCard image={baseColor} title="baseColor" />
                                   </Grid>
                                 </>
@@ -290,7 +300,7 @@ function Select({ setStep }) {
                               <MKButton
                                 onClick={() => {
                                   toggleModal(3 + i);
-                                  setFaceType(2);
+                                  setFaceType(cosType);
                                 }}
                                 variant="contained"
                                 color="primary"
@@ -313,7 +323,9 @@ function Select({ setStep }) {
 
               {/* Eye */}
               <Grid container item xs={12} spacing={3}>
-                <MKTypography variant="h5">Eyes</MKTypography>
+                <MKTypography variant="h5" mt={4}>
+                  Eyes
+                </MKTypography>
                 <Grid container item xs={12} spacing={1}>
                   {eyes.map((eye, i) => (
                     <>
@@ -374,7 +386,14 @@ function Select({ setStep }) {
                             >
                               {eyeColors.map((eyeColor, eyeColorIndex) => (
                                 <>
-                                  <Grid item lg="3" onClick={() => setShowEye(1 + eyeColorIndex)}>
+                                  <Grid
+                                    item
+                                    lg="3"
+                                    onClick={() => {
+                                      setShowEye(1 + eyeColorIndex);
+                                      setCosType(5 + eyeColorIndex);
+                                    }}
+                                  >
                                     <TransparentImageCard image={eyeColor} title="eyeColor" />
                                   </Grid>
                                 </>
@@ -393,7 +412,7 @@ function Select({ setStep }) {
                               <MKButton
                                 onClick={() => {
                                   toggleModal(i);
-                                  setFaceType(1);
+                                  setFaceType(cosType);
                                 }}
                                 variant="contained"
                                 color="primary"
@@ -415,7 +434,7 @@ function Select({ setStep }) {
               </Grid>
 
               {/* lip */}
-              <Grid container item xs={12} spacing={3}>
+              <Grid container item xs={12} spacing={3} mb={1}>
                 <MKTypography variant="h5" mt={4}>
                   Lips
                 </MKTypography>
@@ -479,7 +498,14 @@ function Select({ setStep }) {
                             >
                               {lipColors.map((lipColor, lipColorIndex) => (
                                 <>
-                                  <Grid item lg="3" onClick={() => setShowLip(1 + lipColorIndex)}>
+                                  <Grid
+                                    item
+                                    lg="3"
+                                    onClick={() => {
+                                      setShowLip(1 + lipColorIndex);
+                                      setCosType(9 + lipColorIndex);
+                                    }}
+                                  >
                                     <TransparentImageCard image={lipColor} title="lipColor" />
                                   </Grid>
                                 </>
@@ -498,7 +524,7 @@ function Select({ setStep }) {
                               <MKButton
                                 onClick={() => {
                                   toggleModal(6 + i);
-                                  setFaceType(3);
+                                  setFaceType(cosType);
                                 }}
                                 variant="contained"
                                 color="primary"
