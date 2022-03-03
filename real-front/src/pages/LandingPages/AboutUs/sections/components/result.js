@@ -37,19 +37,19 @@ import R20W8 from "assets/images/results-20-w/r8.png";
 import R20W9 from "assets/images/results-20-w/r9.png";
 
 // // Eye Type Images
-import E1 from "assets/images/eyes/milk.png";
-import E2 from "assets/images/eyes/clio_sharp.png";
-import E3 from "assets/images/eyes/clio_kill.png";
+import E1 from "assets/images/eyes/eye1.png";
+import E2 from "assets/images/eyes/eye2.png";
+import E3 from "assets/images/eyes/eye3.png";
 
 // // Base Type Images
-import B1 from "assets/images/bases/bglow.png";
-import B2 from "assets/images/bases/fresh.png";
-import B3 from "assets/images/bases/killcover.png";
+import B1 from "assets/images/bases/base1.png";
+import B2 from "assets/images/bases/base2.png";
+import B3 from "assets/images/bases/base3.png";
 
 // // Lip Type Images
-import L1 from "assets/images/lips/bbia.png";
-import L2 from "assets/images/lips/peripera.png";
-import L3 from "assets/images/lips/mac.png";
+import L1 from "assets/images/lips/lip1.png";
+import L2 from "assets/images/lips/lip2.png";
+import L3 from "assets/images/lips/lip3.png";
 
 function Result() {
   return (

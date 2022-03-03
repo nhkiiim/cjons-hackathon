@@ -47,23 +47,23 @@ import W30 from "assets/images/faces/30w.png";
 // import W50 from "assets/images/faces/50대 여성.png";
 
 // Eye Type Images
-import E1 from "assets/images/eyes/milk.png";
-import E2 from "assets/images/eyes/clio_sharp.png";
-import E3 from "assets/images/eyes/clio_kill.png";
+import E1 from "assets/images/eyes/eye1.png";
+import E2 from "assets/images/eyes/eye2.png";
+import E3 from "assets/images/eyes/eye3.png";
 import EC1 from "assets/images/eye-colors/eye-color-1.png";
 import EC2 from "assets/images/eye-colors/eye-color-2.png";
 import EC3 from "assets/images/eye-colors/eye-color-3.png";
 import EC4 from "assets/images/eye-colors/eye-color-4.png";
 import EA0 from "assets/images/eye-apply/eye-apply-0.png";
-import EA1 from "assets/images/eye-apply/eye-apply-1.png";
-import EA2 from "assets/images/eye-apply/eye-apply-2.png";
-import EA3 from "assets/images/eye-apply/eye-apply-3.png";
-import EA4 from "assets/images/eye-apply/eye-apply-4.png";
+import EA1 from "assets/images/eye-apply/eye-color-1.png";
+import EA2 from "assets/images/eye-apply/eye-color-2.png";
+import EA3 from "assets/images/eye-apply/eye-color-3.png";
+import EA4 from "assets/images/eye-apply/eye-color-4.png";
 
 // Base Type Images
-import B1 from "assets/images/bases/bglow.png";
-import B2 from "assets/images/bases/fresh.png";
-import B3 from "assets/images/bases/killcover.png";
+import B1 from "assets/images/bases/base1.png";
+import B2 from "assets/images/bases/base2.png";
+import B3 from "assets/images/bases/base3.png";
 import BC1 from "assets/images/base-colors/base-color-1.png";
 import BC2 from "assets/images/base-colors/base-color-2.png";
 import BC3 from "assets/images/base-colors/base-color-3.png";
@@ -75,9 +75,9 @@ import BA3 from "assets/images/base-apply/base-apply-3.png";
 import BA4 from "assets/images/base-apply/base-apply-4.png";
 
 // Lip Type Images
-import L1 from "assets/images/lips/bbia.png";
-import L2 from "assets/images/lips/peripera.png";
-import L3 from "assets/images/lips/mac.png";
+import L1 from "assets/images/lips/lip1.png";
+import L2 from "assets/images/lips/lip2.png";
+import L3 from "assets/images/lips/lip3.png";
 import LC1 from "assets/images/lip-colors/lip-color-1.png";
 import LC2 from "assets/images/lip-colors/lip-color-2.png";
 import LC3 from "assets/images/lip-colors/lip-color-3.png";
@@ -94,15 +94,15 @@ import br1 from "assets/images/results/base-result-1.png";
 import lr1 from "assets/images/results/lip-result-1.png";
 
 const eyes = [
-  [E1, "밀크터치 마스카라"],
-  [E2, "클리오 펜슬라이너"],
-  [E3, "클리오 마스카라"],
+  [E1, "롬앤 망고튤립"],
+  [E2, "3CE 아몬드 퍼지"],
+  [E3, "페리페라 디핑모먼트"],
 ];
 
 const bases = [
   [B1, "에스쁘아 비글로우"],
-  [B2, "에스쁘아 파우더"],
-  [B3, "클리오 킬커버"],
+  [B2, "힌스 파운데이션"],
+  [B3, "헤라 블랙쿠션"],
 ];
 
 const lips = [
@@ -203,109 +203,6 @@ function Select({ setStep }) {
             rowHeight={165}
           >
             <Grid container xs={12} spacing={1}>
-              {/* Eye */}
-              <Grid container item xs={12} spacing={3}>
-                <MKTypography variant="h5">Eyes</MKTypography>
-                <Grid container item xs={12} spacing={1}>
-                  {eyes.map((eye, i) => (
-                    <>
-                      <Grid
-                        item
-                        xs={4}
-                        sm={6}
-                        lg={4}
-                        onClick={() => toggleModal(i)}
-                        sx={{
-                          padding: "10px 20px 0px 0px",
-                        }}
-                      >
-                        <TransparentBlogCard image={eye[0]} title={eye[1]} />
-                      </Grid>
-                      <Modal
-                        open={show[i]}
-                        onClose={() => toggleModal(i)}
-                        sx={{
-                          display: "grid",
-                          placeItems: "center",
-                        }}
-                      >
-                        <Slide direction="down" in={show[i]} timeout={500}>
-                          <MKBox
-                            position="relative"
-                            width="500px"
-                            display="flex"
-                            flexDirection="column"
-                            borderRadius="xl"
-                            bgColor="white"
-                            shadow="xl"
-                            sx={{
-                              "&:focus": {
-                                outline: "none",
-                              },
-                            }}
-                          >
-                            <MKBox
-                              display="flex"
-                              alginItems="center"
-                              justifyContent="space-between"
-                              p={2}
-                            >
-                              <MKTypography variant="h5">{eye[1]}</MKTypography>
-                              <CloseIcon
-                                fontSize="medium"
-                                sx={{ cursor: "pointer" }}
-                                onClick={() => toggleModal(i)}
-                              />
-                            </MKBox>
-                            <Divider sx={{ my: 0 }} />
-                            <Grid
-                              container
-                              spacing="25"
-                              flexDirection="row"
-                              sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
-                            >
-                              {eyeColors.map((eyeColor, eyeColorIndex) => (
-                                <>
-                                  <Grid item lg="3" onClick={() => setShowEye(1 + eyeColorIndex)}>
-                                    <TransparentImageCard image={eyeColor} title="eyeColor" />
-                                  </Grid>
-                                </>
-                              ))}
-                            </Grid>
-
-                            <Divider sx={{ my: 0 }} />
-                            <>
-                              <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
-                                <TransparentImageCard image={eyeApplys[showEye]} title="eyeApply" />
-                              </Grid>
-                            </>
-
-                            <Divider sx={{ my: 0 }} />
-                            <MKBox display="flex" justifyContent="flex-end" p={1.5}>
-                              <MKButton
-                                onClick={() => {
-                                  toggleModal(i);
-                                  setFaceType(1);
-                                }}
-                                variant="contained"
-                                color="primary"
-                                sx={{
-                                  backgroundColor: "#ff9d8c",
-                                  color: "white",
-                                  "&:hover": { backgroundColor: "#ff9d8c" },
-                                }}
-                              >
-                                선택 완료
-                              </MKButton>
-                            </MKBox>
-                          </MKBox>
-                        </Slide>
-                      </Modal>
-                    </>
-                  ))}
-                </Grid>
-              </Grid>
-
               {/* Base */}
               <Grid container item xs={12} spacing={3}>
                 <MKTypography variant="h5" mt={4}>
@@ -394,6 +291,109 @@ function Select({ setStep }) {
                                 onClick={() => {
                                   toggleModal(3 + i);
                                   setFaceType(2);
+                                }}
+                                variant="contained"
+                                color="primary"
+                                sx={{
+                                  backgroundColor: "#ff9d8c",
+                                  color: "white",
+                                  "&:hover": { backgroundColor: "#ff9d8c" },
+                                }}
+                              >
+                                선택 완료
+                              </MKButton>
+                            </MKBox>
+                          </MKBox>
+                        </Slide>
+                      </Modal>
+                    </>
+                  ))}
+                </Grid>
+              </Grid>
+
+              {/* Eye */}
+              <Grid container item xs={12} spacing={3}>
+                <MKTypography variant="h5">Eyes</MKTypography>
+                <Grid container item xs={12} spacing={1}>
+                  {eyes.map((eye, i) => (
+                    <>
+                      <Grid
+                        item
+                        xs={4}
+                        sm={6}
+                        lg={4}
+                        onClick={() => toggleModal(i)}
+                        sx={{
+                          padding: "10px 20px 0px 0px",
+                        }}
+                      >
+                        <TransparentBlogCard image={eye[0]} title={eye[1]} />
+                      </Grid>
+                      <Modal
+                        open={show[i]}
+                        onClose={() => toggleModal(i)}
+                        sx={{
+                          display: "grid",
+                          placeItems: "center",
+                        }}
+                      >
+                        <Slide direction="down" in={show[i]} timeout={500}>
+                          <MKBox
+                            position="relative"
+                            width="500px"
+                            display="flex"
+                            flexDirection="column"
+                            borderRadius="xl"
+                            bgColor="white"
+                            shadow="xl"
+                            sx={{
+                              "&:focus": {
+                                outline: "none",
+                              },
+                            }}
+                          >
+                            <MKBox
+                              display="flex"
+                              alginItems="center"
+                              justifyContent="space-between"
+                              p={2}
+                            >
+                              <MKTypography variant="h5">{eye[1]}</MKTypography>
+                              <CloseIcon
+                                fontSize="medium"
+                                sx={{ cursor: "pointer" }}
+                                onClick={() => toggleModal(i)}
+                              />
+                            </MKBox>
+                            <Divider sx={{ my: 0 }} />
+                            <Grid
+                              container
+                              spacing="25"
+                              flexDirection="row"
+                              sx={{ mt: "-15px", pl: "25px", pr: "25px" }}
+                            >
+                              {eyeColors.map((eyeColor, eyeColorIndex) => (
+                                <>
+                                  <Grid item lg="3" onClick={() => setShowEye(1 + eyeColorIndex)}>
+                                    <TransparentImageCard image={eyeColor} title="eyeColor" />
+                                  </Grid>
+                                </>
+                              ))}
+                            </Grid>
+
+                            <Divider sx={{ my: 0 }} />
+                            <>
+                              <Grid item lg="6" sx={{ mt: "10px", ml: "auto", mr: "auto" }}>
+                                <TransparentImageCard image={eyeApplys[showEye]} title="eyeApply" />
+                              </Grid>
+                            </>
+
+                            <Divider sx={{ my: 0 }} />
+                            <MKBox display="flex" justifyContent="flex-end" p={1.5}>
+                              <MKButton
+                                onClick={() => {
+                                  toggleModal(i);
+                                  setFaceType(1);
                                 }}
                                 variant="contained"
                                 color="primary"
